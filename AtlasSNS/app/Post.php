@@ -7,4 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //
+    protected $fillable = [
+        'post'
+    ];
+
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
 }
