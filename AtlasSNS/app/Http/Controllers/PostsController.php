@@ -33,8 +33,7 @@ class PostsController extends Controller
 
       // $post->save();
        $post = $request->input('newPost');
-       $user_id = $request->user()->id;
-      //  $user_id= Auth::id();
+       $user_id= Auth::id();
       //  dd($user_id);
         // Post::create([
         //   'user_id' => $user_id,
@@ -50,5 +49,11 @@ class PostsController extends Controller
         return back();
 
 
+    }
+
+ public function delete($post)
+    {
+        Post::where('post', $post)->delete();
+        return redirect('/index');
     }
 }

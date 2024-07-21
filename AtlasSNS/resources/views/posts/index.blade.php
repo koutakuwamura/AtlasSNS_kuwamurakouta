@@ -16,7 +16,14 @@
      <div class="form-group">
          {{ Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) }}
      </div>
-     <button type="submit" class="btn btn-success pull-right">追加</button>
+
+          <button type="submit" class="btn btn-success pull-right">追加</button>
+          <button type="submit" class="btn btn-danger">削除</button>
+
+
+</table>
+
+
  {!! Form::close() !!}
 
 
