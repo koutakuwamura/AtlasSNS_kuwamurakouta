@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\post;
+use App\Post;
 use Auth;
 
 class PostsController extends Controller
@@ -13,8 +13,9 @@ class PostsController extends Controller
 
      public function index()
     {
+        $posts = Post::get(); //Postモデル（postsテーブル）からレコード情報を取得
+        return view('posts.index',['posts'=>$posts]);
 
-       return view('posts.index');
     }
 
     public function create()
@@ -51,9 +52,12 @@ class PostsController extends Controller
 
     }
 
- public function delete($post)
+ public function delete($id)
     {
-        Post::where('post', $post)->delete();
-        return redirect('/index');
+        Post::where('id', $id)->delete();
+       return back();
+
     }
+
+
 }

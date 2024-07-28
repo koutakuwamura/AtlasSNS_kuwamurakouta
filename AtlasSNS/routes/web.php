@@ -39,7 +39,7 @@ Route::get('/top','PostsController@index')->name('top');
 
  Route::get('/post','PostsController@create')->name('post.create');//表示
 Route::post('/post','PostsController@store')->name('post.store');//投稿押した後
-Route::post('/post','PostsController@delete')->name('post.delete');//削除
+Route::get('/post/{id}/delete','PostsController@delete')->name('post.delete');//削除
  Route::get('/profile','UsersController@profile');//プロフィール
 
 Route::get('/search','UsersController@search');//ユーザー検索

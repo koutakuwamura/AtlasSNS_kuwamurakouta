@@ -8,7 +8,7 @@ class Post extends Model
 {
     //
     protected $fillable = [
-        'post','user_id',
+        'post','user_id','id'
 
     ];//データベースの更新や反映などの許可
 
