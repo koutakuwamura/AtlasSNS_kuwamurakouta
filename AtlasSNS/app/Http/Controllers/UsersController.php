@@ -13,18 +13,29 @@ public function profile(Request $request){
    $id = Auth::id();
 
    if($request->isMethod('post')){
+      //  $request->validate([
+      //     'upusername'  => 'required|min:2|max:12',
+      //     'upmail' => 'required|email|unique:users,mail|min:5|max:40,' . $id,
+      //     'uppassword' => 'required|string|alpha_num|min:8|max:20|confirmed',
+      //     'uppassword_confirmation' => 'required|string|alpha_num|min:8|max:20|same:password',
+      //     'upbio' => 'required|string|max:150',
+      //          'images' => 'required|image',]);
 
 $up_username = $request->input('upusername');
 $up_mail = $request->input('upmail');
 $up_password = $request->input('uppassword');
 $up_bio = $request->input('upbio');
 $up_image = $request->file('images');
-dd($up_image);
-if ($request->hasFile('upimage')) {
+// dd($id,$up_username,$up_mail,$up_password,$up_bio,$up_image);
 
-      $path = Storage::disk('public')->putFile('upimage', $up_image);
-    dd($id,$up_username,$up_mail,$up_password,$up_bio,$up_image);}
+if ($request->hasFile('images')) {
 
+     $path = $request->file('images')->store('images', 'public');
+     $up_image->images = $path;
+   }
+else{
+   //元画像入れる{{ Auth::user()->images }}
+}
 
      User::where('id', $id)->update([
             'username' => $up_username,
@@ -57,10 +68,3 @@ if ($request->hasFile('upimage')) {
 }
 
 }
-//  $request->validate([
-//           'username'  => 'required|min:2|max:12',
-//           'mailadress' => 'required|email|unique:users,mail|min:5|max:40',
-//           'newpassword' => 'required|string|alpha_num|min:8|max:20|confirmed',
-//           'newPasswordConfirmation' => 'required|string|alpha_num|min:8|max:20|same:password',
-//           'bio' => 'required|string|max:150',
-//                'iconimage' => 'required|image',]);
