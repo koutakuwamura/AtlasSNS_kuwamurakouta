@@ -12,7 +12,9 @@ class Post extends Model
 
     ];//データベースの更新や反映などの許可
 
-    public function posts(){
-        return $this->hasMany('App\Post');
+    public function user(){
+        return $this->hasMany('App\User');
     }
+
+
 }

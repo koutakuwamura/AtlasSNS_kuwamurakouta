@@ -49,7 +49,9 @@ class LoginController extends Controller
                 return redirect('/top');
             }
         }
+        // dd($request,$data);
         return view("auth.login");
+
     }
     public function logout(Request $request){
         Auth::logout();

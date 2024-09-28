@@ -26,7 +26,7 @@
         </div>
 
         <div id="name">
-        <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
+        <p>{{ Auth::user()->username }}さん<img src="images/{{ Auth::user()->images }}"></p>
         </div>
                     <div class="include-accordion scroll-control">
                         <li>

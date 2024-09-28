@@ -41,7 +41,7 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
-            // dd($request);
+            //  dd($request);
             // // バリデーションルールの定義(バリデーションを入れると/homeの画面が表示される)
              $request->validate([
                          'username' => 'required|string|min:2|max:12',
@@ -60,6 +60,7 @@ class RegisterController extends Controller
                 'mail' => $mail,
                 'password' => bcrypt($password),]);
             \Session::flash('username', $username);
+            dd($username,$mail,$password);
             return redirect('added');
         }
         return view('auth.register');
