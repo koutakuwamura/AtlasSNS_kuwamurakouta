@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->followers()->where('following_id', $user)->exists();
     }
 
+    //中間テーブルに登録するメソッド
+
+    //中間テーブル外すメソッド
+
+
 
     public function posts()
     {
