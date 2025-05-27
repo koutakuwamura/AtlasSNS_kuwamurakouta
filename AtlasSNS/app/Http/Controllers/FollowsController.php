@@ -49,6 +49,41 @@ class FollowsController extends Controller
             'followingsCount' => $followingsCount
         ]);
     }
+    /**
+     * フォロー一覧ページの表示
+     * 自分がフォローしているユーザーの投稿・情報を取得
+     */
+    public function followList()
+    {
+        $users = User::get();
+        $id = Auth::id();
+
+        // 自分がフォローしているユーザーのIDを取得（修正済み）
+        $followingIds = Follow::where('following_id', $id)->pluck('followed_id');
+
+        // フォローしているユーザーの情報を取得
+        $followings = User::whereIn('id', $followingIds)->get();
+
+        // フォローしているユーザーの投稿を取得
+        $posts = Post::with('user')
+            ->whereIn('user_id', $followingIds)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // 自分のフォロー数
+        $followingsCount = $followingIds->count();
+
+        // 自分のフォロワー数
+        $followersCount = Follow::where('followed_id', $id)->count();
+
+        return view('follows.followList', [
+            'users' => $users,
+            'followings' => $followings, // ← ここも修正
+            'posts' => $posts,
+            'followersCount' => $followersCount,
+            'followingsCount' => $followingsCount
+        ]);
+    }
 
     /**
      * 指定ユーザーをフォローする処理
