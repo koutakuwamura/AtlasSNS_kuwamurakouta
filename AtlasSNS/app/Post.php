@@ -8,12 +8,15 @@ class Post extends Model
 {
     //
     protected $fillable = [
-        'post','user_id','id'
+        'post',
+        'user_id',
+        'id'
 
     ];//データベースの更新や反映などの許可
 
-    public function user(){
-        return $this->hasMany('App\User');
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
 

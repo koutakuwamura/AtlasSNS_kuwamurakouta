@@ -28,28 +28,38 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added')->name('added');
 Route::post('/added', 'Auth\RegisterController@added');
 
-  Route::get('/logout', 'Auth\LoginController@logout');
-  Route::post('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::post('/logout', 'Auth\LoginController@logout');
 
 
 //ログイン中ページ　auth認証済
-Route::group(['middleware' => ['auth']], function() {
-Route::get('/top','PostsController@index')->name('top');
- Route::post('/top','PostsController@index');
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/top', 'PostsController@index')->name('top');
+  Route::post('/top', 'PostsController@index');
 
- Route::get('/post','PostsController@create')->name('post.create');//表示
+  Route::get('/post', 'PostsController@create')->name('post.create');//表示
 
-Route::post('/post','PostsController@store')->name('post.store');//投稿押した後
-Route::get('/post/{id}/delete','PostsController@delete')->name('post.delete');//削除
- Route::get('/profile','UsersController@profile');//プロフィール
- Route::post('/profile','UsersController@profile');//プロフィール
+  Route::post('/post', 'PostsController@store')->name('post.store');//投稿押した後
+  Route::get('/post/{id}/delete', 'PostsController@delete')->name('post.delete');//削除
+  Route::get('/profile', 'UsersController@profile');//プロフィール
+  Route::post('/profile', 'UsersController@profile');//プロフィール
+  Route::post('/profile', [ImageController::class, 'store']);
 
 
 
 
-Route::get('/search','UsersController@search');//ユーザー検索
-Route::post('/search','UsersController@search');//ユーザー検索
+  Route::get('/search', 'UsersController@search');//ユーザー検索
+  Route::post('/search', 'UsersController@search');//ユーザー検索
 
-Route::get('/follow-list','FollowsController@followList');//ふぉろリ
-Route::get('/follower-list','FollowsController@followerList');//フォローワーページ
- });
+
+
+  Route::get('/follow-list', 'FollowsController@followList');//フォローリストページ
+  Route::get('/follower-list', 'FollowsController@followerList');//フォローワーページ
+  Route::get('/profiles/{id}', 'FollowsController@followprofile');//フォローフォロワーのユーザ画面
+
+
+
+
+  Route::post('/follow/{id}', 'FollowsController@follow');//フォロー
+  Route::post('/unfollow/{id}', 'FollowsController@unfollow');//アンフォロー
+});

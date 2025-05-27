@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
@@ -21,42 +21,43 @@
 </head>
 <body>
     <header>
-        <div class = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <div class="head">
+            <h1><a href="/top"><img src="/storage/images/atlas.png"></a></h1>
         </div>
 
         <div id="name">
-        <p>{{ Auth::user()->username }}さん<img src="images/{{ Auth::user()->images }}"></p>
+            <p>{{ Auth::user()->username }}さん<img src="/storage/images/{{ Auth::user()->images }}"></p>
+
         </div>
-                    <div class="include-accordion scroll-control">
-                        <li>
-                           <button class="accordionBtn" type="button" id="accordion"></button>
-                         <ul>
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                         </ul>
-                       </li>
-                     </div>
-                </div>
-            </div>
+        <div class="include-accordion scroll-control">
+            <li>
+                <button class="accordionBtn" type="button" id="accordion"></button>
+                <ul>
+                    <li><a href="/top">ホーム</a></li>
+                    <li><a href="/profile">プロフィール</a></li>
+                    <li><a href="/logout">ログアウト</a></li>
+                </ul>
+            </li>
+        </div>
+        </div>
+        </div>
 
     </header>
     <div id="row">
         <div id="container">
             @yield('content')
-        </div >
+        </div>
         <div id="side-bar">
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>〇〇名</p>
+                    <p>フォロー数</p>
+                    <p>〇〇名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
+                    <p>フォロワー数</p>
+                    <p>〇〇名</p>
                 </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
@@ -65,7 +66,7 @@
     </div>
     <footer>
     </footer>
-       <script src="{{ asset('js/accordion.js') }}"></script>
+    <script src="{{ asset('js/accordion.js') }}"></script>
     <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>

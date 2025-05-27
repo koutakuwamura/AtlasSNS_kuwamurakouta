@@ -55,12 +55,15 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
+            // dd($username,$mail,$password,$password_confirmation);
             User::create([
-                'username' => $username,
-                'mail' => $mail,
-                'password' => bcrypt($password),]);
+            'username' => $username,
+            'mail' => $mail,
+            'password' => \Hash::make($password),]);
+
             \Session::flash('username', $username);
-            dd($username,$mail,$password);
+
+            //  dd($username,$mail,$password);
             return redirect('added');
         }
         return view('auth.register');
