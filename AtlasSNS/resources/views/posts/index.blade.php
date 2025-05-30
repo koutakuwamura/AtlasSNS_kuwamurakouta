@@ -3,14 +3,14 @@
 @section('content')
 
     <!-- <from action="{{ url('/post')}}" method="POST">
-                          @csrf
+                                              @csrf
 
-                          <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                          <div>
-                            <input type="text" name="post" value="" class="form-control" placeholder="内容の入力" required> </div>
-                        <button type="submit" class="btn btn-success pull-right">送信</button>
-                        </from>
-                        -->
+                                              <input type="hidden" name="_token" value="{{ csrf_token()}}">
+                                              <div>
+                                                <input type="text" name="post" value="" class="form-control" placeholder="内容の入力" required> </div>
+                                            <button type="submit" class="btn btn-success pull-right">送信</button>
+                                            </from>
+                                            -->
     {!! Form::open(['url' => '/post']) !!}
     {{Form::token()}}
 
@@ -24,7 +24,8 @@
 
     </div>
     <button type="submit">
-        <img src="/images/post.png">
+        <img src="/images/post.png" style="width: 40px; height: 40px;">
+
     </button>
 
     <table class="table table-hover">

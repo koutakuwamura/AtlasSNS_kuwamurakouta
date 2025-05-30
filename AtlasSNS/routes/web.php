@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/post', 'PostsController@create')->name('post.create');//表示
 
-  Route::post('/post', 'PostsController@store')->name('post.store');//投稿押した後
+  Route::post('/post', 'PostsController@store')->name('post.store');//投稿押した後z
   Route::get('/post/{id}/delete', 'PostsController@delete')->name('post.delete');//削除
   Route::get('/profile', 'UsersController@profile');//プロフィール
   Route::post('/profile', 'UsersController@profile');//プロフィール
