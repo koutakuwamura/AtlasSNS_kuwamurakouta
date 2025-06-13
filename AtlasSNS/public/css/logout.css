@@ -95,3 +95,10 @@ input[type="submit"] {
     color: #FFFFFF;
     text-decoration: underline;
 }
+
+/* エラー文 */
+.error {
+    color: red;
+    font-size: 13px;
+    margin: 5px 0 10px;
+}
