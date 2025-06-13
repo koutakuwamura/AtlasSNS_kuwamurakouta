@@ -8,6 +8,7 @@
   <title></title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
+
   <!--スマホ,タブレット対応-->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <!--サイトのアイコン指定-->
@@ -21,7 +22,7 @@
 </head>
 <body>
   <header>
-    <h1><img src="images/atlas.png"></h1>
+    <img src="images/atlas.png" style="width: 150px; height: auto;">
     <p>Social Network Service</p>
   </header>
   <div id="container">

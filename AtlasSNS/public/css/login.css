@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+html {}
+
+body {
+  background-color: #ccd8ff;
+  padding: 50px 0;
+}
+
+/* header */
+header {
+  background: #186AC9;
+
+}
