@@ -1,30 +1,30 @@
 @extends('layouts.logout')
 
 @section('content')
-<!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/register']) !!}
+  <!-- 適切なURLを入力してください -->
+  {!! Form::open(['url' => '/register']) !!}
+  <div class="back">
+    <p class="title">新規ユーザー登録</p>
 
-<h2>新規ユーザー登録</h2>
-
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
-
-
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+    {{ Form::label('username', 'ユーザー名', ['class' => 'label'])}}
+    {{ Form::text('username', null, ['class' => 'input']) }}
 
 
-{{ Form::submit('登録') }}
+    {{ Form::label('e-mail', 'メールアドレス', ['class' => 'label']) }}
+    {{ Form::text('mail', null, ['class' => 'input']) }}
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+    {{ Form::label('password', 'パスワード', ['class' => 'label']) }}
+    {{ Form::password('password', ['class' => 'input']) }}
 
-{!! Form::close() !!}
+    {{ Form::label('password_confirmation', 'パスワード確認確認', ['class' => 'label']) }}
+    {{ Form::password('password_confirmation', ['class' => 'input']) }}
 
+
+    {{ Form::submit('新規登録') }}
+
+    <p class="a"><a href="/login">ログイン画面へ戻る</a></p>
+
+    {!! Form::close() !!}
+  </div>
 
 @endsection
