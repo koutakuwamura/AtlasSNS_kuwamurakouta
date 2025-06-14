@@ -7,7 +7,7 @@
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/top-header.css') }} ">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -22,22 +22,28 @@
 <body>
     <header>
         <div class="head">
-            <h1><a href="/top"><img src="/storage/images/atlas.png"></a></h1>
+            <a href="/top"><img src="/storage/images/atlas.png"></a>
         </div>
 
-        <div id="name">
-            <p>{{ Auth::user()->username }}さん<img src="/storage/images/{{ Auth::user()->images }}"></p>
+        <div class="right">
+            <p class="h-username">{{ Auth::user()->username }}
+                さん
+
+
+            <div class="include-accordion">
+                <li>
+                    <button class="accordionBtn" type="button" id="accordion"></button>
+                    <ul>
+                        <li><a href="/top">ホーム</a></li>
+                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </li>
 
         </div>
-        <div class="include-accordion scroll-control">
-            <li>
-                <button class="accordionBtn" type="button" id="accordion"></button>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </li>
+        <div class="h-images"><img src="/storage/images/{{ Auth::user()->images }}"></p>
+        </div>
+
         </div>
         </div>
         </div>
@@ -49,20 +55,24 @@
         </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
-                <div>
+                <p class="s-username">{{ Auth::user()->username }}さんの</p>
+                <div class="following">
                     <p>フォロー数</p>
-                    <p>{{ Auth::user()->following->count() }}名</p>
+                    <p>{{ Auth::user()->following->count() }}人</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
+                <button class="btn-follow" onclick="location.href='/follow-list'">
+                    <p>フォローリスト</p>
+                </button>
+                <div class="follower">
                     <p>フォロワー数</p>
-                    <!-- ブレードでカウントカウント -->
-                    <p>{{ Auth::user()->followers->count() }}名</p>
+                    <p>{{ Auth::user()->followers->count() }}人</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <button class="btn-follow" onclick="location.href='/follower-list'">フォロワーリスト</button>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <hr style="border: none; border-top: 1px solid #ccc; ">
+            <form action="/search" method="GET">
+                <button class="btn-search" type="submit">ユーザー検索</button>
+            </form>
         </div>
     </div>
     <footer>

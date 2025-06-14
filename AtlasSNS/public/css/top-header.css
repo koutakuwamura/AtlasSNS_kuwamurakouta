@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+header {
+    background-color: #1E73BE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    color: #fff;
+}
+
+.head img {
+    width: 150px;
+    height: auto;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.h-username {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.h-images img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#side-bar {
+    width: 300px;
+    background-color: #ffffff;
+    border-left: 1px solid #ccc;
+}
+
+
+
+.post {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid #e6e6e6;
+    border-radius: 8px;
+    position: relative;
+}
+
+.post .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f88;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+button {
+    background-color: #1E73BE;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"] {}
+
+.btn-follow {
+    width: 50%;
+    white-space: nowrap;
+    background-color: #1E73BE;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 130px;
+    margin-bottom: 20px;
+}
+
+.btn-follow:hover,
+button[type="submit"]:hover {
+    background-color: #155a96;
+}
+
+.btn-search {
+    width: 60%;
+    white-space: nowrap;
+    background-color: #1E73BE;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+/* 編集・削除アイコン */
+.post-icons {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.post-icons .edit,
+.post-icons .delete {
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.post-icons .delete:hover {
+    color: red;
+    transform: scale(1.1);
+}
+
+.include-accordion ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    right: 10px;
+}
+
+.include-accordion li:hover ul {
+    display: block;
+}
+
+.s-username {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+}
+
+.following {
+    display: flex;
+    padding-left: 20px;
+    gap: 50px;
+    margin-bottom: 10px;
+}
+
+.follow p {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.follower {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
